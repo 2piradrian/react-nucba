@@ -2,7 +2,7 @@ import { React, useContext } from "react";
 import { Context } from "../../Context/TaskContext";
 import { saveLocalStorage } from "../../utils/localStorage";
 import { SubContainer, TaskContainer, TaskText } from "./TaskStyles";
-import { Trash } from "./TaskFormStyles";
+import { Trash } from "../FormStyles";
 
 function Task(props) {
 	const { tasks, setTasks } = useContext(Context);

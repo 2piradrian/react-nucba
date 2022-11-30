@@ -10,7 +10,7 @@ import {
 	SendButton,
 	Trash,
 	TrashButton,
-} from "./TaskFormStyles";
+} from "../FormStyles";
 
 function TaskForm() {
 	const keys = new Date();
