@@ -1,13 +1,5 @@
 import React, { useContext, useRef, useState } from "react";
-import {
-	Error,
-	Form,
-	Input,
-	InputContainer,
-	SendButton,
-	Trash,
-	TrashButton,
-} from "../FormStyles";
+import { Error, Form, Input, InputContainer, SendButton } from "../FormStyles";
 import { FiArrowRight } from "react-icons/fi";
 import { PokemonContext } from "../../Context/PokeContext";
 import { useQuery } from "react-query";
@@ -20,6 +12,10 @@ function PokeForm() {
 	const [textError, setTextError] = useState("Pokemon inválido");
 
 	const fetchPokemon = (pokemon) => {
+		console.log(pokemon);
+		if (!pokemon) {
+			pokemon = "Charmander";
+		}
 		pokemon = pokemon.toLowerCase();
 		return axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
 	};
@@ -58,7 +54,6 @@ function PokeForm() {
 		"pokemon",
 		() => fetchPokemon(pokeRef.current.value),
 		{
-			enabled: false,
 			onSuccess,
 			onError,
 		}
@@ -76,9 +71,6 @@ function PokeForm() {
 				<SendButton type="submit">
 					<FiArrowRight />
 				</SendButton>
-				<TrashButton type="button">
-					<Trash />
-				</TrashButton>
 			</InputContainer>
 			{error && <Error>{textError}</Error>}
 		</Form>
