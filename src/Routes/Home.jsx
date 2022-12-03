@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { StyledLink } from "../Components/Global/Global";
 import {
 	ButtonContainer,
 	ButtonWithoutTask,
@@ -15,14 +16,22 @@ function Home() {
 			<ButtonContainer>
 				{tasks.length > 0 && (
 					<>
-						<ButtonWithTask>To Do</ButtonWithTask>
-						<ButtonWithTask>Pokemon</ButtonWithTask>
+						<StyledLink to="/todo">
+							<ButtonWithTask>To Do</ButtonWithTask>
+						</StyledLink>
+						<StyledLink to="/pokemon">
+							<ButtonWithTask>Pokemon</ButtonWithTask>
+						</StyledLink>
 					</>
 				)}
 				{tasks.length === 0 && (
 					<>
-						<ButtonWithoutTask>To Do</ButtonWithoutTask>
-						<ButtonWithoutTask>Pokemon</ButtonWithoutTask>
+						<StyledLink to="/todo">
+							<ButtonWithoutTask>To Do</ButtonWithoutTask>
+						</StyledLink>
+						<StyledLink to="/pokemon">
+							<ButtonWithoutTask>Pokemon</ButtonWithoutTask>
+						</StyledLink>
 					</>
 				)}
 			</ButtonContainer>
