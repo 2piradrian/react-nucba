@@ -47,6 +47,9 @@ function TaskForm() {
 			isValid = true;
 		}
 		setValid(isValid);
+		setTimeout(() => {
+			setValid(true);
+		}, 2000);
 		return isValid;
 	};
 

@@ -11,8 +11,7 @@ function PokeForm() {
 	const [error, setError] = useState(false);
 	const [textError, setTextError] = useState("Pokemon inválido");
 
-	const fetchPokemon = (pokemon) => {
-		console.log(pokemon);
+	const fetchPokemon = (pokemon = "Charmander") => {
 		if (!pokemon) {
 			pokemon = "Charmander";
 		}
@@ -41,6 +40,9 @@ function PokeForm() {
 		if (!data.data.name) {
 			setError(true);
 			setTextError("Pokemon inválido");
+			setTimeout(() => {
+				setError(false);
+			}, 2000);
 			return;
 		}
 		setPokemon(data);
@@ -48,6 +50,9 @@ function PokeForm() {
 	const onError = () => {
 		setError(true);
 		setTextError("Pokemon inválido");
+		setTimeout(() => {
+			setError(false);
+		}, 2000);
 	};
 
 	const { data, refetch } = useQuery(
